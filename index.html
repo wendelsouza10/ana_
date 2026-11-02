@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light">
+<title>Para você</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stage">
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <div class="card">
+      <div class="question">Você sabe o que é capaz de<br>fazer com <em>meus dias</em>?</div>
+      <div class="options">
+        <button class="choice" id="btnSim">simm</button>
+        <button class="choice secondary" id="btnNao">nãoo, quero saber...</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrong-screen" id="wrongScreen">
+    <div>
+      <div class="wrong-title">Resposta errada,<br> sem graça.</div>
+      <div class="wrong-sub">Toque em qualquer lugar para voltar</div>
+    </div>
+  </div>
+
+  <div class="stage carousel-screen" id="screenSemVoce">
+    <div class="card">
+      <div class="question">Meus dias antes de você</div>
+      <button class="arrow-btn" id="btnToNuvem" aria-label="Próximo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h13M13 6l6 6-6 6" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="stage carousel-screen dark-screen" id="screenNuvem">
+    <div class="card">
+      <div class="illustration">
+        <img src="ana_1.jpg" alt="Meu dia sem você" id="imgNuvem">
+      </div>
+      <button class="arrow-btn" id="btnToComVoce" aria-label="Próximo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h13M13 6l6 6-6 6" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="stage carousel-screen" id="screenComVoce">
+    <div class="card">
+      <div class="question">Meus dias depois que eu te conheci</div>
+      <button class="arrow-btn" id="btnToSol" aria-label="Próximo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h13M13 6l6 6-6 6" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="stage carousel-screen" id="screenSol">
+    <div class="card">  
+      <div class="illustration illustration-shadow">
+        <img src="ana_2.jpg" alt="Meu dia com você" id="imgSol">
+      </div>
+      <button class="arrow-btn" id="btnToFinal" aria-label="Próximo">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12h13M13 6l6 6-6 6" stroke="white" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="stage carousel-screen" id="screenFinal">
+    <div class="card">
+      <div class="final-small">Espero que Deus abençoe tudo isso que a gente tá vivendo e vamos viver juntos! Você deixa os dias desse carinha mais felizes!</div>
+      <div class="illustration illustration-shadow final-photo">
+        <img src="wendel_mini.jpeg" alt="Foto">
+      </div>
+      <div class="final-caps">eu amo você minha princesa, com certeza a minha resposta de oração mais linda!</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

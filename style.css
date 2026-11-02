@@ -1,0 +1,250 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+:root {
+  color-scheme: light;
+  --lilac: #7c5cff;
+  --lilac-light: #a894ff;
+  --wrong: #ff5c7a;
+  --right: #34d399;
+  --paper: #f6f3ff;
+  --ink: #241236;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Nunito Sans', sans-serif;
+  background: #ffffff !important;
+  color: var(--ink);
+  overflow: hidden;
+  color-scheme: light;
+}
+
+.stage {
+  height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.18;
+  pointer-events: none;
+}
+.glow.one { width: 280px; height: 280px; background: var(--lilac); top: -80px; left: -80px; }
+.glow.two { width: 340px; height: 340px; background: #ff8fb1; bottom: -110px; right: -90px; }
+
+.card {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  text-align: center;
+}
+
+.question {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.4rem, 6vw, 2rem);
+  line-height: 1.35;
+  margin-bottom: 44px;
+  letter-spacing: -0.01em;
+  animation: rise 0.6s ease both;
+}
+
+.question em {
+  font-style: italic;
+  color: var(--lilac);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: rise 0.6s ease both;
+  animation-delay: 0.1s;
+}
+
+button.choice {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 18px 24px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  color: var(--paper);
+  background: linear-gradient(180deg, var(--lilac-light), var(--lilac));
+  box-shadow: 0 8px 24px rgba(124, 92, 255, 0.35);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button.choice:active {
+  transform: scale(0.97);
+}
+
+button.choice.secondary {
+  background: linear-gradient(180deg, #6a4bd6, #543a9e);
+}
+
+button.choice.secondary.confirmed {
+  background: linear-gradient(180deg, var(--right), #12a874);
+  box-shadow: 0 8px 24px rgba(52, 211, 153, 0.4);
+}
+
+.wrong-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  background: #ffffff;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.wrong-screen.show {
+  display: flex;
+  animation: fade 0.35s ease both;
+}
+
+.wrong-title {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 7vw, 2.1rem);
+  color: var(--wrong);
+  margin-bottom: 10px;
+}
+
+.wrong-sub {
+  font-size: 0.95rem;
+  color: var(--ink);
+  opacity: 0.6;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .question, .options, .wrong-screen.show { animation: none; }
+}
+
+/* Carousel screens (Meu dia sem você / com você / final) */
+.carousel-screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 5;
+  background: #ffffff;
+}
+
+.carousel-screen.show {
+  display: flex;
+  animation: fade 0.4s ease both;
+}
+
+.illustration {
+  width: 280px;
+  margin: 0 auto 28px;
+}
+
+.illustration svg,
+.illustration img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.illustration-shadow img {
+  filter: drop-shadow(0 12px 28px rgba(36, 18, 54, 0.25));
+  border-radius: 16px;
+}
+
+/* Tela final */
+.final-small {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--ink);
+  opacity: 0.75;
+  margin-bottom: 24px;
+}
+
+.final-photo {
+  width: 240px;
+  margin: 0 auto 24px;
+}
+
+.final-photo img {
+  border-radius: 20px;
+}
+
+.final-caps {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.3rem;
+  line-height: 1.4;
+  color: var(--lilac);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.carousel-screen .question {
+  margin-bottom: 40px;
+}
+
+/* Tela triste: fundo preto, letras brancas */
+.dark-screen {
+  background: #0a0a0a !important;
+}
+
+.dark-screen .question {
+  color: #f5f5f5;
+}
+
+.dark-screen .question em {
+  color: #c9bfff;
+}
+
+.arrow-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--lilac-light), var(--lilac));
+  box-shadow: 0 8px 24px rgba(124, 92, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  transition: transform 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.arrow-btn:active {
+  transform: scale(0.93);
+}
+
+.arrow-btn svg {
+  width: 24px;
+  height: 24px;
+}
